@@ -21,35 +21,40 @@ export default function docxLoader(options: Options):Loader {
         name: 'docx-loader',
         async load({ store, generateDigest, logger }) {
             const sources = Array.isArray(options.sources) ? options.sources : [options.sources];
-            sources.forEach(source => {
-                glob(source, async (err, matches) => {
-                    if (err) {
-                        logger.error(err.message);
-                        return;
-                    }
-                    for await (const match of matches) {
-                        const { value, messages } = await mammoth.convertToHtml({ path: match }, { styleMap: options.styleMap });
-                        if (messages.length) {
-                            messages.forEach((msg) => {
-                                logger.info(msg.message)
-                            });
+            const promises = sources.map(source => {
+                return new Promise<void>(res => {
+                    glob(source, async (err, matches) => {
+                        if (err) {
+                            logger.error(err.message);
+                            return;
                         }
-                        const id = getId(match);
-                        const data = {
-                            content: value,
-                        };
-                        const digest = generateDigest({
-                            id,
-                            data
-                        });
-                        store.set({
-                            id,
-                            digest,
-                            data
-                        })
-                    }
+                        for await (const match of matches) {
+                            const { value, messages } = await mammoth.convertToHtml({ path: match }, { styleMap: options.styleMap });
+                            if (messages.length) {
+                                messages.forEach((msg) => {
+                                    logger.info(msg.message)
+                                });
+                            }
+                            const id = getId(match);
+                            const data = {
+                                content: value,
+                            };
+                            const digest = generateDigest({
+                                id,
+                                data
+                            });
+                            store.set({
+                                id,
+                                digest,
+                                data
+                            })
+                        }
+                        res();
+                    })
                 })
             })
+
+            await Promise.all(promises);
         }
     }
 }
