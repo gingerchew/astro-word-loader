@@ -40,8 +40,7 @@ export default function docxLoader(options: Options):Loader {
                             const id = getId(match);
                             const data = {
                                 match,
-                                id,
-                                content: value
+                                id
                             };
                             const digest = generateDigest({
                                 id,
