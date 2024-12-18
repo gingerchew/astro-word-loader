@@ -41,6 +41,7 @@ export default function docxLoader(options: Options):Loader {
                             const data = {
                                 match,
                                 id,
+                                content: value
                             };
                             const digest = generateDigest({
                                 id,
