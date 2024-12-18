@@ -21,9 +21,11 @@
   "dependencies": {
     "@astrojs/netlify": "^6.0.1",
     "astro": "^5.0.9",
-    "mammoth": "^1.8.0"
+    "mammoth": "^1.8.0",
+    "turndown": "^7.2.0"
   },
   "devDependencies": {
-    "@types/node": "^22.10.2"
+    "@types/node": "^22.10.2",
+    "@types/turndown": "^5.0.5"
   }
 }

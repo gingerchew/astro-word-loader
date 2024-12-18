@@ -1,5 +1,5 @@
 import mammoth from 'mammoth';
-
+import TurndownService from 'turndown';
 import { type Loader } from 'astro/loaders';
 import { glob } from 'node:fs';
 
@@ -17,6 +17,8 @@ function getId(str:string):string {
 }
 
 export default function docxLoader(options: Options):Loader {
+    const service = new TurndownService();
+
     return {
         name: 'docx-loader',
         async load({ store, generateDigest, logger }) {
@@ -37,13 +39,16 @@ export default function docxLoader(options: Options):Loader {
                             }
                             const id = getId(match);
                             const data = {
-                                content: value,
+                                match,
+                                id,
                             };
                             const digest = generateDigest({
                                 id,
+                                body: service.turndown(value),
                                 data
                             });
                             store.set({
+                                body: service.turndown(value),
                                 id,
                                 digest,
                                 data

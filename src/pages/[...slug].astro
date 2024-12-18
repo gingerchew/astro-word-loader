@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import type { GetStaticPaths } from "astro";
+import { render } from "astro:content";
 import { getCollection, getEntry } from "astro:content";
 
 export const prerender = true
@@ -13,7 +14,10 @@ export const getStaticPaths = (async () => {
     console.log(output);
     return output;
 }) satisfies GetStaticPaths;
-const entry = await getEntry('wordDocs', Astro.params.slug);
+
+const entry = await getEntry('wordDocs', Astro.params.slug)!;
+const { Content, headings } = await render(entry)
 ---
-<Layout set:html={entry!.data.content}>
+<Layout>
+    <Content />
 </Layout>
