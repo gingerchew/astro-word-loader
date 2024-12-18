@@ -1,8 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import type { GetStaticPaths } from "astro";
-
 import { getCollection, getEntry } from "astro:content";
+
+export const prerender = true
+
 export const getStaticPaths = (async () => {
     const collection = await getCollection('wordDocs');
     const output = collection.map(({ id }) => ({
