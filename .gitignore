@@ -26,3 +26,5 @@ pnpm-debug.log*
 
 .netlify/build
 .netlify/v1
+
+public/
