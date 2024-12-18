@@ -9,8 +9,12 @@
     "preview": "astro preview",
     "astro": "astro"
   },
-  "keywords": ["withastro","astro-loader"],
+  "keywords": [
+    "withastro",
+    "astro-loader"
+  ],
   "dependencies": {
+    "@astrojs/netlify": "^6.0.1",
     "astro": "^5.0.9",
     "mammoth": "^1.8.0"
   },
