@@ -1,0 +1,31 @@
+---
+const links = [
+    {
+        name: 'NPM',
+        href: 'https://www.npmjs.com/package/astro-word-loader'
+    },
+    {
+        name: 'GitHub',
+        href: 'https://github.com/gingerchew/astro-word-loader'
+    },
+    {
+        name: 'Author',
+        href: 'https://ginger.wtf'
+    }
+]
+---
+<ul>
+    {links.map(({ href, name }) => <li>
+        <a href={href}>{name}</a>
+    </li>)}
+</ul>
+<style>
+    ul {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        list-style-type: none;
+        margin: 0;
+        padding:0;
+    }
+</style>

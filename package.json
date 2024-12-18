@@ -1,14 +1,20 @@
 {
   "name": "astro-word-loader",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.5.0",
+  "main": "loader.ts",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
+  "keywords": ["withastro","astro-loader"],
   "dependencies": {
-    "astro": "^5.0.9"
+    "astro": "^5.0.9",
+    "mammoth": "^1.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2"
   }
 }
