@@ -37,6 +37,17 @@ const entry = await getEntry('my-collection', 'my-file');
 
 I'd like to get that working before a final release is done.
 
+## TODO
+
+- [ ] Images
+    - Currently images in word docs seem to be converted to a data-uri
+    - Add in loading and decoding attributes
+    - Sizing with Astro's `<Image />` component?
+    - Other performance enhancements
+    - Currently (12/18/24) sample4 takes too long to load for pagespeed to generate recommendations
+- [ ] Better style map interface
+- [ ] Performance testing?
+
 ## Thanks
 
 - Mammoth and [Mammoth.js](https://github.com/mwilliamson/mammoth.js) specifically for powering this loader

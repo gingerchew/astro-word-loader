@@ -11,3 +11,10 @@ const collection = await getCollection('wordDocs');
 		<a href={'/'+id}>{id}</a>
 	</li>)}</ul>
 </Layout>
+<style>
+	ul {
+		display: flex;
+		flex-flow: column;
+		gap: 1rem;
+	}
+</style>
