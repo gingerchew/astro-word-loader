@@ -9,6 +9,11 @@
     "preview": "astro preview",
     "astro": "astro"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gingerchew/astro-word-loader.git"
+  },
+  "homepage": "https://astro-word-loader.netlify.app",
   "keywords": [
     "withastro",
     "astro-loader"

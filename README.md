@@ -2,6 +2,10 @@
 
 Take a glob of word files and convert them to an Astro collection.
 
+> [!IMPORTANT]  
+> This is a beta release, there are still several things that are nice about Astro that can't be used here.
+> [See the Special Notes section to learn more](https://github.com/gingerchew/astro-word-loader#special-notes)
+
 ## How to use:
 
 ```ts
