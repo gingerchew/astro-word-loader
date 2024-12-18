@@ -1,7 +1,7 @@
-src
-public
-.vscode
+src/
+public/
+.vscode/
 astro.config.mjs
 tsconfig.json
-.astro
-.netlify
+.astro/
+.netlify/
