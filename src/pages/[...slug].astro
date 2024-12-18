@@ -16,7 +16,7 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths;
 
 const entry = await getEntry('wordDocs', Astro.params.slug)!;
-const { Content, headings } = await render(entry)
+const { Content } = await render(entry)
 ---
 <Layout>
     <Content />
